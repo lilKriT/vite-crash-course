@@ -63,4 +63,14 @@ Speeds everything up.
 Vite will discover dependencies on it's own.
 You can manually include dependencies too.
 
-# Caching
+# Static asset handling
+
+Vite will find the proper URL whenever needed. You can use both relative and absolute paths.
+You can use modifiers to import in a specific way
+`?url`
+`?raw`
+`?worker`
+
+Public folder
+You put all the stuff that doesn't get referenced (robots.txt for example), has to maintain the same name.
+Use absolute path for them.
