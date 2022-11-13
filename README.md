@@ -96,3 +96,37 @@ rollupOptions: {
   }
 }
 ```
+
+# Deploying a static site
+
+you can change the build output from `/dist` using `build.outDir`
+
+Build with
+`yarn build`
+
+Then you can preview it with
+`yarn preview` or upload the dist folder to the server.
+
+you can change the preview port with `vite preview --port 8080`
+
+## Github Pages
+
+Set the base in vite.config.js
+If you deploy to https://<username>.github.io/ you can skip that step, base will be /
+
+## Netlify
+
+Install the CLI.
+`ntl init`
+`ntl deploy`
+if you like what you see,
+`ntl deploy --prod`
+
+Netlify with Git:
+Push to Git
+Import the project to netlify
+Check the settings
+Click on Deploy
+
+Now if you make a change to production branch, it will update automatically.
+Any other branch will create a preview build.
