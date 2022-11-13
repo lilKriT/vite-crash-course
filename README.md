@@ -74,3 +74,25 @@ You can use modifiers to import in a specific way
 Public folder
 You put all the stuff that doesn't get referenced (robots.txt for example), has to maintain the same name.
 Use absolute path for them.
+
+# Building for production
+
+`vite build`
+
+If you need root url in a dynamically concatenated URL, use `import.meta.env.BASE_URL`
+
+You can customize rollup options with https://rollupjs.org/guide/en/#big-list-of-options
+
+Chunking strategy - works be default, can be customized
+Rebuild file changes - can be turned on `vite build --watch`
+Multi page apps:
+Specify all the entry points
+
+```
+rollupOptions: {
+  input: {
+    main: resolve(__dirname, 'index.html`),
+    nested: resolve(__dirname, 'nested/index.html')
+  }
+}
+```
