@@ -130,3 +130,41 @@ Click on Deploy
 
 Now if you make a change to production branch, it will update automatically.
 Any other branch will create a preview build.
+
+# Environment Variables and Modes
+
+You can find env vars in `import.meta.env`
+Some of them:
+
+- MODE - prod or dev
+- BASE_URL - determined in config (`base`)
+- PROD - is it in production?
+- DEV - is it in dev? (always opposite of prod)
+- SSR - is it running in the server
+
+Important to refer to them properly, as they are statically replaced.
+
+Vite uses `.env`.
+
+Env files:
+
+- `.env` - always loaded
+- `.env.local` - always loaded, ignored by git
+- `.env.[mode]` - loaded in mode
+- `.env.[mode].local` - loaded in mode, ignored by git
+
+Mode specific file takes priority over generic!
+You can expose vars to your client by using `VITE_` prefix.
+
+`VITE_LOOK = 123` will be visible.
+`password = secret` will not
+You can change the prefix using `envPrefix` option
+
+`vite build --mode staging`
+will use
+
+```
+#env.staging
+NODE_ENV=production
+VITE_APP_TITLE=My app (staging)
+```
